@@ -15,7 +15,7 @@ let package = Package(
         .binaryTarget(
             name: "TNF360SDK",
             url: "\(downloadBase)/TNF360SDK.xcframework.zip",
-            checksum: "16307a562a7f1cd6defdab41758a28bf2056187d554a586045d60e818ecb8bd7"
+            checksum: "b5131ade04a4cdf223df1efa77f1d9fffe2247f4f9e2a89a1f2e9ee5592ecbce"
         ),
     ]
 )
