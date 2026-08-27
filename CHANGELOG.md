@@ -35,7 +35,11 @@ Initial binary release.
   `isRetryable` flag.
 - **Offline-first storage and sync**: capture never blocks on connectivity, and uploads
   continue in the background, reconnecting to transfers still in flight across launches.
-- **Host log hook** (`TNF360Log`) for surfacing the SDK's diagnostics in the host's own logging.
+- **The SDK logs for itself** (`TNF360Log`). Its lines are printed to the console prefixed
+  `[TNF360SDK]` (subsystem `com.thenoughtyfox.tnf360`), filtered by `TNF360Log.level`. Every
+  line, down to `debug`, is written to the SDK's on-device log file
+  (`Documents/Logs/capture-runtime.log`) whatever the level says, so a bug report stays
+  complete at any verbosity.
 - `TNF360Core.isDeviceSupported` for gating the capture flow on LiDAR availability.
 - Bundled assets and localized strings resolved automatically at runtime.
 - Third-party `NOTICES` and `LICENSE`.
