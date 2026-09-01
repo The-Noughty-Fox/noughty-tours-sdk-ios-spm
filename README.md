@@ -1,11 +1,11 @@
-# TNF360 SDK
+# NoughtyTours SDK
 
 Drop-in property capture for iOS: your users create a property, walk it to map its floor plan,
 capture panoramas room by room, and everything is stored locally and uploaded in the background.
 You add one package, write one import, and push the screens the SDK vends onto your own
 navigation stack.
 
-📘 **[Documentation](https://the-noughty-fox.github.io/tnf360-sdk-ios-spm/documentation/tnf360sdk)**
+📘 **[Documentation](https://the-noughty-fox.github.io/noughty-tours-sdk-ios-spm/documentation/noughtytourssdk)**
 — setup, a full walkthrough, and every public symbol. Start there.
 
 ## Installation
@@ -13,10 +13,10 @@ navigation stack.
 In Xcode: **File → Add Package Dependencies…** with
 
 ```
-https://github.com/The-Noughty-Fox/tnf360-sdk-ios-spm.git
+https://github.com/The-Noughty-Fox/noughty-tours-sdk-ios-spm.git
 ```
 
-Pick the [latest release](../../releases) and depend on the single product, `TNF360SDK`. The
+Pick the [latest release](../../releases) and depend on the single product, `NoughtyToursSDK`. The
 package has no dependencies of its own — everything the SDK needs is inside the binary.
 
 ## Requirements
@@ -30,7 +30,7 @@ package has no dependencies of its own — everything the SDK needs is inside th
 
 The last two cannot be pre-configured for you. Send us your **bundle identifier** and **Team ID**
 to get a key, then follow
-**[Setting up App Attest](https://the-noughty-fox.github.io/tnf360-sdk-ios-spm/documentation/tnf360sdk/appattest)**.
+**[Setting up App Attest](https://the-noughty-fox.github.io/noughty-tours-sdk-ios-spm/documentation/noughtytourssdk/appattest)**.
 
 ## Support
 

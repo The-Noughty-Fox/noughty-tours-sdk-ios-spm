@@ -1,11 +1,10 @@
-TNF360 SDK — Third-Party Software Notices
-=========================================
+NoughtyTours SDK — Third-Party Software Notices
+===============================================
 
-The TNF360 SDK depends on the following third-party open-source software, resolved
-via Swift Package Manager from their own repositories. Some generic specializations
-of these libraries are compiled into the SDK binary at the SDK's use sites; the bulk
-of each library is linked into your app from the version SwiftPM resolves. Their
-copyright notices and license terms are reproduced below.
+The NoughtyTours SDK includes the following third-party open-source software. Both are
+compiled into the SDK binary, with their symbols hidden, so the package resolves no
+dependencies of its own and your app keeps its own copies untouched. Their copyright
+notices and license terms are reproduced below.
 
   • GRDB.swift — MIT
   • Zip (marmelroy/Zip; vendors Minizip under the zlib license) — MIT
