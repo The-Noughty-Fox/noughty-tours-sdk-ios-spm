@@ -29,10 +29,29 @@ Initial binary release.
 - **Screens vended from the core** in three namespaces — `core.properties`,
   `core.structureCapture`, `core.panoramaCapture` — each reporting through one typed
   `onEvent` closure whose events carry the handle for the next screen.
-- **Property/floor/room handles without the list screen**: `createProperty(name:floorCount:)`
-  and `property(id:)`, for hosts that already know what they are capturing.
+  `NoughtyToursPanoramaCaptureEvent` matches its structure-capture neighbour: a `.cancelled`
+  case, and a `.finished` that carries the floor and how many panoramas the visit added.
+- **iPhone and iPad.** The capture screens and the modal cards lay out correctly on iPad,
+  where the cards stay dialog-sized rather than stretching to the full width.
+- **Property/floor/room handles without the list screen**: `createProperty(name:floorCount:metadata:)`
+  and `property(id:)`, for hosts that already know what they are capturing. Both are `async`:
+  they start the core themselves, so a host that builds a screen before awaiting `start()`
+  gets an error rather than a trap.
+- **Host metadata on a tour.** `createProperty` takes an optional `metadata` — any `Encodable`
+  that encodes to a JSON object — serialized once at the boundary and sent when the tour is
+  created, so a work order or job id travels to the backend with the capture. Set **once, at
+  creation**: the update request carries no such field, and a property created without it never
+  gets any. The only check is that the value is a JSON *object*; anything else is
+  `NoughtyToursError.invalidMetadata`, which is not retryable.
+- **Reading what a capture produced.** `status(of:)` for a point-in-time read and
+  `statusUpdates(for:)` for an `AsyncStream` driven by the database's own change notifications;
+  both run the same query, so a poll and a stream cannot disagree.
+  `NoughtyToursPropertyStatus` carries the backend tour id (`nil` until the first sync), the
+  sync state, and floor/room/panorama counts including uploaded and failed.
 - **Typed errors** — `NoughtyToursError` and `NoughtyToursAuthError`, both `LocalizedError` with an
-  `isRetryable` flag.
+  `isRetryable` flag and a stable `code` (lowercase dot-separated slugs, one per case, tabulated
+  on each property). Unlike `description` and the `reason` payloads, which are diagnostics whose
+  wording may change, a code is API: safe to log, to forward, and to branch on.
 - **Offline-first storage and sync**: capture never blocks on connectivity, and uploads
   continue in the background, reconnecting to transfers still in flight across launches.
 - **The SDK logs for itself** (`NoughtyToursLog`). Its lines are printed to the console
@@ -40,7 +59,10 @@ Initial binary release.
   `debug`, is written to the SDK's on-device log file (`Documents/Logs/capture-runtime.log`)
   whatever the level says, so a bug report stays complete at any verbosity.
 - `NoughtyToursCore.isDeviceSupported` for gating the capture flow on LiDAR availability.
-- Bundled assets and localized strings resolved automatically at runtime.
+- Bundled assets and localized strings resolved automatically at runtime. A missing resource
+  bundle degrades to raw keys on screen rather than taking the host app down.
+- Tour names are trimmed before they reach the API, so an unnamed property sends null rather
+  than an empty string — matching what the floor and room mappers already did.
 - Third-party `NOTICES` and `LICENSE`.
 
 ### Notes
