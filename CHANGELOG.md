@@ -18,18 +18,18 @@ Initial binary release.
 - Closed-source Swift Package Manager distribution of the NoughtyTours SDK as a prebuilt,
   cross-Xcode static `xcframework`, exposed through a **single `NoughtyToursSDK` product** and a
   **single import** (`import NoughtyToursSDK`).
-- **`NoughtyToursCore`** — one instance per process, built from a `NoughtyToursConfiguration`
+- **`NoughtyTours`** — one instance per process, built from a `Configuration`
   (environment, publishable key, organisation provider, settings provider). `init` cannot fail;
   `start()` prepares local storage and reconnects to in-flight uploads, and is idempotent.
 - **Device-level auth.** The SDK authenticates *itself*: every capture/data request carries
   a bearer minted from an Apple **App Attest** assertion, scoped to the organisation the host
   supplies. `prepareDeviceAuth()` establishes it up front; `revokeDeviceSession()` tears it
   down. There is no user login in the SDK — the host owns that and supplies only the selected
-  organisation via `NoughtyToursOrganizationProviderType`.
+  organisation via `OrganizationProviderType`.
 - **Screens vended from the core** in three namespaces — `core.properties`,
   `core.structureCapture`, `core.panoramaCapture` — each reporting through one typed
   `onEvent` closure whose events carry the handle for the next screen.
-  `NoughtyToursPanoramaCaptureEvent` matches its structure-capture neighbour: a `.cancelled`
+  `PanoramaCaptureEvent` matches its structure-capture neighbour: a `.cancelled`
   case, and a `.finished` that carries the floor and how many panoramas the visit added.
 - **iPhone and iPad.** The capture screens and the modal cards lay out correctly on iPad,
   where the cards stay dialog-sized rather than stretching to the full width.
@@ -46,23 +46,25 @@ Initial binary release.
 - **Reading what a capture produced.** `status(of:)` for a point-in-time read and
   `statusUpdates(for:)` for an `AsyncStream` driven by the database's own change notifications;
   both run the same query, so a poll and a stream cannot disagree.
-  `NoughtyToursPropertyStatus` carries the backend tour id (`nil` until the first sync), the
+  `PropertyStatus` carries the backend tour id (`nil` until the first sync), the
   sync state, and floor/room/panorama counts including uploaded and failed.
-- **Typed errors** — `NoughtyToursError` and `NoughtyToursAuthError`, both `LocalizedError` with an
+- **Typed errors** — `NoughtyToursError` and `AuthError`, both `LocalizedError` with an
   `isRetryable` flag and a stable `code` (lowercase dot-separated slugs, one per case, tabulated
   on each property). Unlike `description` and the `reason` payloads, which are diagnostics whose
   wording may change, a code is API: safe to log, to forward, and to branch on.
 - **Offline-first storage and sync**: capture never blocks on connectivity, and uploads
   continue in the background, reconnecting to transfers still in flight across launches.
-- **The SDK logs for itself** (`NoughtyToursLog`). Its lines are printed to the console
-  prefixed `[NoughtyToursSDK]`, filtered by `NoughtyToursLog.level`. Every line, down to
+- **The SDK logs for itself** (`Log`). Its lines are printed to the console
+  prefixed `[NoughtyToursSDK]`, filtered by `Log.level`. Every line, down to
   `debug`, is written to the SDK's on-device log file (`Documents/Logs/capture-runtime.log`)
   whatever the level says, so a bug report stays complete at any verbosity.
-- `NoughtyToursCore.isDeviceSupported` for gating the capture flow on LiDAR availability.
+- `NoughtyTours.isDeviceSupported` for gating the capture flow on LiDAR availability.
 - Bundled assets and localized strings resolved automatically at runtime. A missing resource
   bundle degrades to raw keys on screen rather than taking the host app down.
-- Tour names are trimmed before they reach the API, so an unnamed property sends null rather
-  than an empty string — matching what the floor and room mappers already did.
+- **Every property has a name.** `createProperty(name:)` takes a non-optional `String`, trimmed
+  before it reaches the API; a blank one is rejected with `NoughtyToursError.invalidName` rather
+  than silently becoming an English placeholder. Floor and room names stay optional — the
+  backend models an unnamed floor or room, and a floor titles itself from its number.
 - Third-party `NOTICES` and `LICENSE`.
 
 ### Notes

@@ -15,7 +15,7 @@ let package = Package(
         .binaryTarget(
             name: "NoughtyToursSDK",
             url: "\(downloadBase)/NoughtyToursSDK.xcframework.zip",
-            checksum: "5b39126e136594b74880b5bd295861fe3d1300f5cef7e946e3a9dcc1c1937845"
+            checksum: "a100ad06c2833216b407ca033c28d5657d943d6deb71668db9c9647685fc60d2"
         ),
     ]
 )
