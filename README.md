@@ -34,7 +34,7 @@ to get a key, then follow
 
 ## Support
 
-Questions, a publishable key, or a backend registration: <info@thenoughtyfox.com>.
+Questions, a publishable key, or a backend registration: <support@thenoughtyfox.com>.
 
 - **[Changelog](./CHANGELOG.md)** — release notes and version history
 - **[Notices](./NOTICES)** — third-party software licenses
