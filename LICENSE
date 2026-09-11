@@ -1,0 +1,45 @@
+NoughtyTours SDK Software License Agreement
+===========================================
+
+Copyright © 2026 The Noughty Fox. All rights reserved.
+
+This NoughtyTours SDK ("Software") is proprietary and confidential software of
+The Noughty Fox. It is distributed in binary (xcframework) form only.
+
+1. License Grant
+   Subject to the terms of this Agreement and any separate commercial
+   agreement between you and The Noughty Fox, you are granted a limited,
+   non-exclusive, non-transferable, revocable license to incorporate the
+   Software, in its unmodified binary form, into your own applications and to
+   distribute it only as embedded within those applications.
+
+2. Restrictions
+   You may not, in whole or in part: (a) reverse engineer, decompile, or
+   disassemble the Software, except to the extent such restriction is
+   prohibited by applicable law; (b) modify, adapt, or create derivative works
+   of the Software; (c) redistribute, sublicense, sell, rent, or lease the
+   Software other than as embedded within your applications; or (d) remove or
+   alter any proprietary notices contained in the Software.
+
+3. Third-Party Software
+   The Software includes third-party components governed by their own license
+   terms, reproduced in the accompanying NOTICES file. Those terms apply to the
+   respective components.
+
+4. No Warranty
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+5. Limitation of Liability
+   IN NO EVENT SHALL THE NOUGHTY FOX BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING
+   FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+   IN THE SOFTWARE.
+
+6. Termination
+   This license terminates automatically if you breach any of its terms. Upon
+   termination you must cease all use and distribution of the Software.
+
+For commercial licensing terms, support, or access requests, contact
+The Noughty Fox at support@thenoughtyfox.com.
