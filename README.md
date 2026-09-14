@@ -5,7 +5,7 @@ capture panoramas room by room, and everything is stored locally and uploaded in
 You add one package, write one import, and push the screens the SDK vends onto your own
 navigation stack.
 
-📘 **[Documentation](https://docs.thenoughtyfox.com/docs/ios-sdk/overview)**
+📘 **[Documentation](https://docs.noughtyreality.com/docs/ios-sdk/overview)**
 — setup, a full walkthrough, every screen, event and error, and the release notes. Start there.
 
 ## Installation
@@ -30,7 +30,7 @@ package has no dependencies of its own — everything the SDK needs is inside th
 
 The last two cannot be pre-configured for you. Send us your **bundle identifier** and **Team ID**
 to get a key, then follow
-**[App Attest](https://docs.thenoughtyfox.com/docs/ios-sdk/app-attest)**.
+**[App Attest](https://docs.noughtyreality.com/docs/ios-sdk/app-attest)**.
 
 ## Support
 

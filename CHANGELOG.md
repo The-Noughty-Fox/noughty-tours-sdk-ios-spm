@@ -17,7 +17,7 @@ _Changes that have not yet been released will be listed here._
   the linker's debug map, which only named files on our build machine. SDK frames in your crash
   reports still symbolicate to function names, and your linked app is the same size.
 - The documentation is now at
-  [docs.thenoughtyfox.com](https://docs.thenoughtyfox.com/docs/ios-sdk/overview), with a version
+  [docs.noughtyreality.com](https://docs.noughtyreality.com/docs/ios-sdk/overview), with a version
   for each release.
 
 ## [0.1.0]
