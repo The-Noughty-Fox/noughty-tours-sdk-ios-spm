@@ -10,6 +10,16 @@ Release tags are bare SemVer (no `v` prefix).
 
 _Changes that have not yet been released will be listed here._
 
+## [0.2.0] - 2026-09-14
+
+### Changed
+- `NoughtyToursSDK.xcframework.zip` is 10.6 MB, down from 13.0 MB. The binary no longer carries
+  the linker's debug map, which only named files on our build machine. SDK frames in your crash
+  reports still symbolicate to function names, and your linked app is the same size.
+- The documentation is now at
+  [docs.thenoughtyfox.com](https://docs.thenoughtyfox.com/docs/ios-sdk/overview), with a version
+  for each release.
+
 ## [0.1.0]
 
 Initial binary release.

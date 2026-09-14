@@ -2,7 +2,7 @@
 // Generated for each NoughtyToursSDK release — do not edit by hand.
 import PackageDescription
 
-let version = "0.1.0"
+let version = "0.2.0"
 let downloadBase = "https://github.com/The-Noughty-Fox/noughty-tours-sdk-ios-spm/releases/download/\(version)"
 
 let package = Package(
@@ -15,7 +15,7 @@ let package = Package(
         .binaryTarget(
             name: "NoughtyToursSDK",
             url: "\(downloadBase)/NoughtyToursSDK.xcframework.zip",
-            checksum: "9f6b69ddef25c191ad2f9faa21ad7b2775beecd83aad33b6a4b215b23581e713"
+            checksum: "848c6ad50249189d9d326dc3bc3859edf5e1b9065894216563bebf1f92cb2323"
         ),
     ]
 )
